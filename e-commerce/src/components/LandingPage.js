@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from "react";
 import "./LandingPage.css";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import {AxiosInstance} from "../util/AxiosInstance";
 
@@ -26,7 +26,7 @@ const LandingPage = () => {
   const renderComponent = () => {
     return (
       <>
-        <Navbar />
+     
         <div className="container">
           <div className="row">
             <div className="col-12">

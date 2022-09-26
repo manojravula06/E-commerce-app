@@ -47,7 +47,7 @@ function Login() {
   return (
     
     <div className="d-flex justify-content-center align-items-center vh-100 bg-primary">
-    <Navbar/>
+ 
       <div>
         <h1 className="text-white">Welcome to Amazon</h1>
         <div className="card p-5 text-center">

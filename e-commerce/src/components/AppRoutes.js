@@ -4,6 +4,8 @@ import Landing from './LandingPage';
 import Products from './Products';
 import Cart from './Cart';
 import Checkout from './Checkout';
+import Language from './Language';
+import Login from './Login'
 
 
 
@@ -11,6 +13,7 @@ const AppRoutes = () => {
     return(
         <Router>
             <Routes>
+            <Route path='/login' element={<Login />} />
                 <Route path='/signin' element={<Signin />} />
                 <Route path='/' element={<Landing />} />
                 <Route path='/products' element={<Products />} />
@@ -18,6 +21,7 @@ const AppRoutes = () => {
                 <Route path='/checkout' element={<Checkout />} />
 
             </Routes>
+            <Language/>
         </Router>
        
     )

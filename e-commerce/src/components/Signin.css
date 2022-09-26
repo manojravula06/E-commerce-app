@@ -1,0 +1,20 @@
+
+.login-wrapper {
+  margin-top: 30px;
+ display: flex;
+ justify-content:center;
+}
+
+.title {
+  font-size: 75px;
+  color:#0c35ff
+}
+
+.input-group {
+  margin:15px;
+  width:35rem;
+}
+.button{
+  padding-left: 30px;
+  width:250rem;
+}

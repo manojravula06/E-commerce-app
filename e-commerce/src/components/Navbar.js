@@ -44,17 +44,7 @@ const Navbar = () => {
               </li>
             </ul>
             {/* search bar */}
-            <div className="input-group px-2 mx-2">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Seach"
-                aria-describedby="basic-addon1"
-              />
-              <span className="input-group-text btn" id="basic-addon1">
-                <BsSearch/>
-              </span>
-            </div>
+            
           </div>
 
           {/* Sign in and car buttons */}
