@@ -1,0 +1,17 @@
+.card-size {
+    width: 15rem;
+    display: inline-flex;
+}
+
+.card-size img {
+  /* width: 100%;
+  height: 1000px; */
+  padding: 5px;
+}
+
+.card-img-holder{
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100%;
+
+}
