@@ -37,7 +37,7 @@ const LandingPage = () => {
                   <div className="category-item">All-Categoies</div>
                   </Link>
                   {categories.map((category,id) => (
-                    <Link to="/products">
+                    <Link to={category}>
                       <div className="category-item" key={id}>
                         {category}
                       </div>

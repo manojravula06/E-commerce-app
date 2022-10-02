@@ -5,7 +5,7 @@ import Electronics from './Electronics/Electronics';
 import Cart from './Cart';
 import Checkout from './Checkout';
 import Login from './Login'
-
+import Jewelery from './Jewelery/Jewelery';
 
 
 const AppRoutes = () => {
@@ -16,6 +16,7 @@ const AppRoutes = () => {
                 <Route path='/' element={<Landing />} />
                 <Route path='/products' element={<ProductList />} />
                 <Route path='/electronics' element={<Electronics />} />
+                <Route path='/jewelery' element={<Jewelery />}/>
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/checkout' element={<Checkout />} />
 

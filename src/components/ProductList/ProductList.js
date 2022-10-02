@@ -27,6 +27,7 @@ const ProductList = () => {
                       src={item.image}
                       className="img-card-top"
                       style={{ padding: 2 + "rem" }}
+                      alt="no-img"
                     />
                     <p className="card-title p-3">{item.title}</p>
 

@@ -15,7 +15,8 @@ const Electronics = () => {
       <div>
         <h1>Electronics</h1>
         <hr />
-        {product.map((item, id) => {
+        {product.filter((item)=>item.category==="electronics").map((item) => {
+           console.log(item)
           return  <div className="card-size">
           <div className="">
           <div className="card">
@@ -23,9 +24,9 @@ const Electronics = () => {
             <img
                src={item.image}
                className="card-img-top"
-             />
+              alt="no-img" />
             </div>
-             <div className="card-body m-4" >
+             <div className="card-body" >
                <p className="card-title text-center">{item.title}</p>
                <input type="submit" value={"buy"} className="btn btn-danger"  />
              </div>
