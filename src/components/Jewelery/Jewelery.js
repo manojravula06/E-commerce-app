@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Jewelery.css";
+import Navbar from "../Navbar";
 
 function Jewelery() {
   const [product, setProduct] = useState([]);
@@ -11,6 +12,7 @@ function Jewelery() {
   }, []);
   return (
     <div>
+      <Navbar/>
       <h1>Jewelery</h1>
       <hr/>
       {product.filter((item)=>item.category==="jewelery")

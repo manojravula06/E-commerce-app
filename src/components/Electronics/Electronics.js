@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Electronics.css";
+import Navbar from "../Navbar";
 const Electronics = () => {
   const [product, setProduct] = useState([]);
 
@@ -13,6 +14,7 @@ const Electronics = () => {
   const renderComponent = () => {
     return (
       <div>
+        <Navbar/>
         <h1>Electronics</h1>
         <hr />
         {product.filter((item)=>item.category==="electronics").map((item) => {

@@ -42,6 +42,7 @@ const LandingPage = () => {
                         {category}
                       </div>
                     </Link>
+                    
                   ))}
                 </div>
               </div>

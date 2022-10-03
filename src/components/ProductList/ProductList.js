@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Navbar from "../Navbar";
 import "./ProductList.css";
 import axios from "axios";
 
@@ -17,6 +18,7 @@ const ProductList = () => {
     return (
       <>
         <div>
+        <Navbar/>
           {/* Mapping all products in card  */}
           {products.map((item) => {
             return (
