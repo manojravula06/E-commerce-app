@@ -1,0 +1,12 @@
+
+.img-size{
+    width: 310px;
+    height: 300px;
+    padding: 2rem;
+  }
+  .alignment{
+  
+    display:inline-flex;
+    align-items: center;
+    justify-content: space-between;
+  }

@@ -1,53 +1,55 @@
-import React, { useState, useEffect } from "react";
-import Navbar from "../Navbar";
-import "./ProductList.css";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import "./ProductList.css";
+import Navbar from "../Navbar";
+const Electronics = () => {
+  const [product, setProduct] = useState([]);
 
-const ProductList = () => {
-  // use state hook
-  const [products, setProducts] = useState([]);
-
-  // useEffect hook fetching all products
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
-      .then((response) => setProducts(response.data));
-    //.then((response) => console.log(response.data)
+      .then((response) => setProduct(response.data));
+    //.then((response)=>console.log(response.data));
   }, []);
   const renderComponent = () => {
     return (
-      <>
-        <div>
-        <Navbar/>
-          {/* Mapping all products in card  */}
-          {products.map((item) => {
+      <div>
+        <Navbar />
+        <h1>All Products</h1>
+        <hr />
+        {product
+          .map((item) => {
+            console.log(item);
             return (
-              <div className="d-inline-flex justify-content-evenly p-2">
-                <div className="size">
-                  <div className="card m-2">
-                    <img
-                      src={item.image}
-                      className="img-card-top"
-                      style={{ padding: 2 + "rem" }}
-                      alt="no-img"
+              <div className="alignment p-3">
+                <div className="card">
+                  <img
+                    src={item.image}
+                    className="card-img-top img-size"
+                    alt="no-img"
+                  />
+                   <div className="card-body">
+                    <p className="card-title text-center">{item.title}</p>
+                    <input
+                      type="submit"
+                      value={"View details"}
+                      className="btn btn-info"
                     />
-                    <p className="card-title p-3">{item.title}</p>
 
                     <input
                       type="submit"
-                      className="btn btn-primary"
-                      value="View Details"
+                      value={"Add to cart"}
+                      className="btn btn-info d-inline-flex justify-content-end mx-3"
                     />
                   </div>
                 </div>
               </div>
             );
           })}
-        </div>
-      </>
+      </div>
     );
   };
   return renderComponent();
 };
 
-export default ProductList;
+export default Electronics;

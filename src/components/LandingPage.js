@@ -3,7 +3,7 @@ import "./LandingPage.css";
 // import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import {AxiosInstance} from "../util/AxiosInstance";
-
+import Navbar from "./Navbar";
 
 const LandingPage = () => {
   // use state hook
@@ -26,8 +26,9 @@ const LandingPage = () => {
   }, []);
   const renderComponent = () => {
     return (
-   
-        <div className="container">
+         
+        <div className="container-fluid">
+           <Navbar/>
           <div className="row">
             <div className="col-12">
               <div classname="col-12">

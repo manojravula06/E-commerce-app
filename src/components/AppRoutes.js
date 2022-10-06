@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'; 
+import Auth from '../api/auth';
 import Landing from './LandingPage';
 import ProductList from './ProductList/ProductList';
 import Electronics from './Electronics/Electronics';
@@ -7,15 +8,16 @@ import Checkout from './Checkout';
 import Login from './Login'
 import Jewelery from './Jewelery/Jewelery';
 import MensClothing from './Mensclothing/MensClothing';
-import WomensClothing from './Womensclothing/WomensClothing'
-import Navbar from './Navbar';
+import WomensClothing from './Womensclothing/WomensClothing';
+import ProductDetail from "./ProductDetail/ProductDetail";
+
 
 const AppRoutes = () => {
     return(
         <Router>
             <Routes>
-        
-            <Route path='/login' element={<Login />} />
+                <Route path='/productdetail' element={<ProductDetail />} />
+                <Route path='/login' element={<Login />} />
                 <Route path='/' element={<Landing />} />
                 <Route path='/products' element={<ProductList />} />
                 <Route path='/electronics' element={<Electronics />} />

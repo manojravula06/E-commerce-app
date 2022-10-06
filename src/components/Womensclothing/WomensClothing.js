@@ -1,45 +1,56 @@
-import {useState,useEffect} from 'react';
-import Navbar from '../Navbar';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 import "./WomensClothing.css";
+import Navbar from "../Navbar";
+const Electronics = () => {
+  const [product, setProduct] = useState([]);
 
-function WomensClothing() {
-    const [product, setProduct] = useState([]);
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((response) => setProduct(response.data));
+    //.then((response)=>console.log(response.data));
   }, []);
-  return (
-    <div>
-        <Navbar/>
-    <h1>Women's Clothing</h1>
-    <hr/>
-    {product.filter((item)=>item.category==="women's clothing")
-    .map((item)=>{
-     return <div className="card-size">
-      <div className="">
-        <div className="card">
-          <div className="card-img-holder">
-            <img
-              src={item.image}
-              className="card-img-top"
-              alt="no-img"
-            />
-          </div>
-          <div className="card-body">
-            <p className="card-title text-center">
-              {item.category}
-            </p>
-            <h5>{item.title}</h5>
-            <input type="submit" value={"buy"} className="btn btn-danger" />
-          </div>
-        </div>
-      </div>
-    </div>
-    })}
-  </div>
-  )
-}
+  const renderComponent = () => {
+    return (
+      <div>
+        <Navbar />
+        <h1>Women's Clothing</h1>
+        <hr />
+        {product
+          .filter((item) => item.category === "women's clothing")
+          .map((item) => {
+            console.log(item);
+            return (
+              <div className="alignment p-3">
+                <div className="card">
+                  <img
+                    src={item.image}
+                    className="card-img-top img-size"
+                    alt="no-img"
+                  />
+                   <div className="card-body">
+                    <p className="card-title text-center">{item.title}</p>
+                    <input
+                      type="submit"
+                      value={"View details"}
+                      className="btn btn-info"
+                    />
 
-export default WomensClothing
+                    <input
+                      type="submit"
+                      value={"Add to cart"}
+                      className="btn btn-info d-inline-flex justify-content-end mx-3"
+                    />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+      </div>
+    );
+  };
+  return renderComponent();
+};
+
+export default Electronics;

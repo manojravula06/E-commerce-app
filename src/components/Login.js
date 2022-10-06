@@ -9,6 +9,7 @@ import { signup, signin } from "../api/auth";
 function Login() {
   // boolean value for signup/login
   const [showSignup, setShowSignup] = useState(false);
+  
   // grabbing the values from input boxes and storing it
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -46,10 +47,10 @@ function Login() {
 
   return (
     
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-primary">
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-info">
  
       <div>
-        <h1 className="text-white">Welcome to Amazon</h1>
+        <h1 className="text-white">Welcome to Street Shopping</h1>
         <div className="card p-5 text-center">
           <div className="card-title">
             <h4>{showSignup ? "Sign Up" : "Log In"} Here</h4>{" "}
