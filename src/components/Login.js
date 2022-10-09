@@ -50,7 +50,7 @@ function Login() {
     <div className="d-flex justify-content-center align-items-center vh-100 bg-info">
  
       <div>
-        <h1 className="text-white">Welcome to Street Shopping</h1>
+        <h1 className="text-white">Welcome to E-cart</h1>
         <div className="card p-5 text-center">
           <div className="card-title">
             <h4>{showSignup ? "Sign Up" : "Log In"} Here</h4>{" "}
@@ -89,7 +89,7 @@ function Login() {
             />
           </div>
 
-          <div className={showSignup ? "btn btn-primary" : "btn btn-danger"}>
+          <div className="btn btn-primary">
             <input
               type="submit"
               className=" btn btn-primary form-control"

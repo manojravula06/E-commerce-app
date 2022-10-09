@@ -20,7 +20,6 @@ const Electronics = () => {
         {product
           .filter((item) => item.category === "electronics")
           .map((item) => {
-            console.log(item);
             return (
               <div className="alignment p-3">
                 <div className="card">
