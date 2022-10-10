@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Jewelery.css";
 import Navbar from "../Navbar";
-const Electronics = () => {
+const Jewelery = () => {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Electronics = () => {
             console.log(item);
             return (
               <div className="alignment p-3">
-                <div className="card">
+                <div className="card md">
                   <img
                     src={item.image}
                     className="card-img-top img-size"
@@ -37,11 +37,6 @@ const Electronics = () => {
                       className="btn btn-info"
                     />
 
-                    <input
-                      type="submit"
-                      value={"Add to cart"}
-                      className="btn btn-info d-inline-flex justify-content-end mx-3"
-                    />
                   </div>
                 </div>
               </div>
@@ -53,4 +48,4 @@ const Electronics = () => {
   return renderComponent();
 };
 
-export default Electronics;
+export default Jewelery;

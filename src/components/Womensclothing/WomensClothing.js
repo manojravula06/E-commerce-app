@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./WomensClothing.css";
 import Navbar from "../Navbar";
-const Electronics = () => {
+
+const WomensClothing = () => {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const Electronics = () => {
           .map((item) => {
             console.log(item);
             return (
-              <div className="alignment p-3">
+              <div className="alignment md p-3">
                 <div className="card">
                   <img
                     src={item.image}
@@ -36,12 +37,6 @@ const Electronics = () => {
                       value={"View details"}
                       className="btn btn-info"
                     />
-
-                    <input
-                      type="submit"
-                      value={"Add to cart"}
-                      className="btn btn-info d-inline-flex justify-content-end mx-3"
-                    />
                   </div>
                 </div>
               </div>
@@ -53,4 +48,4 @@ const Electronics = () => {
   return renderComponent();
 };
 
-export default Electronics;
+export default WomensClothing;

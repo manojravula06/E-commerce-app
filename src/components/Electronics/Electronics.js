@@ -21,7 +21,7 @@ const Electronics = () => {
           .filter((item) => item.category === "electronics")
           .map((item) => {
             return (
-              <div className="alignment p-3">
+              <div className="alignment  md-4 p-3">
                 <div className="card">
                   <img
                     src={item.image}
@@ -34,12 +34,6 @@ const Electronics = () => {
                       type="submit"
                       value={"View details"}
                       className="btn btn-info"
-                    />
-
-                    <input
-                      type="submit"
-                      value={"Add to cart"}
-                      className="btn btn-info d-inline-flex justify-content-end mx-3"
                     />
                   </div>
                 </div>

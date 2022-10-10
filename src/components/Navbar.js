@@ -45,10 +45,11 @@ const Navbar = () => {
         </Link>
         </li>
      </ul>
+     
+
       </div>
 
-      
-      <div>
+      <div className="navbar-collapse collapse d-flex justify-content-end">
       <ul className="navbar-nav me-auto">
       <li className="nav-item">
         <Link to={"/login"} className="nav-link">
@@ -63,8 +64,9 @@ const Navbar = () => {
         </ul>
       </div>
      
+     
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
+      <span className="navbar-toggler-icon"/>
       </button>
     </nav>
     

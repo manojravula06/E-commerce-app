@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AxiosInstance } from "../util/AxiosInstance";
 import { signup, signin } from "../api/auth";
 
 // POST API
@@ -7,6 +8,7 @@ import { signup, signin } from "../api/auth";
 // 3. log the response
 
 function Login() {
+
   // boolean value for signup/login
   const [showSignup, setShowSignup] = useState(false);
   
@@ -39,7 +41,7 @@ function Login() {
     try {
       const response = await signin(user);
       console.log(response);
-      window.location.href = "/";
+      window.location.href = '/';
     } catch (error) {
       console.log(error);
     }
@@ -106,8 +108,13 @@ function Login() {
             </p>
           </div>
           <div className="m-1">
-            <p className="lead text-success">{auth ? auth : ""}</p>
+            {/* <p className={auth?"text-success text-center":
+          "text-danger text-center"}>{auth ? auth : ""}</p> */}
   
+          <p className={auth ?"text-success text-center":
+          "text-danger text-center"}>
+            {auth ? auth : ''}
+          </p>
           </div>
         </div>
       </div>
