@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from "../Navbar/Navbar";
 import { getCart, updateCart } from "../../api/cart";
+import { getSingleProduct } from '../../api/product';
 import './cart.css';
 
 
@@ -14,35 +15,43 @@ const Cart = () => {
   const init = async () => {
     try {
       const response = await getCart();
-      setOrderDetails(response.data);
-      setProductDetails(response.data.productsSelected);
-
+      
+      console.log(response.data.products)
+      let items=response.data.products
+      for(let i=0;i<=items.length;i++){
+        console.log(items[i])
+       
+          let productId=items[i]
+          const res=await getSingleProduct({productId})
+          console.log(res)
+        
+      }
+      setOrderDetails(response.data.products);
+      setProductDetails(response.data.products);
     } catch (error) {
-
+ 
       console.log(error);
     }
 
   }
-
   const removeProductFromCart = async (productId) => {
 
     try {
 
       const { data } = await getCart();
-      console.log(data);
+      console.log(data)
       const response = await updateCart(productDetails, productId, "REMOVE");
-      console.log(response.data);
       setOrderDetails(response.data);
       setProductDetails(response.data.productsSelected);
 
     } catch (error) {
-      console.log(error);
+      console.log(error);  
     }
   }
 
 
   useEffect(() => {
-
+    
     init();
   }, [])
 
@@ -60,20 +69,20 @@ const Cart = () => {
                   <div className="order-details-title ">Order Details</div>
                   {
                     productDetails?.length > 0 ? productDetails.map((product) => (
-                      
+                        
                       <div className="order-details-product" key={product.id}>
-                        hi
+                      
                         <div className="order-details-product-img ">
                           <img src="https://img.favpng.com/8/17/0/product-design-clip-art-logo-food-png-favpng-TsCQEsJH2LUYN3d5Q6RzrTsqL.jpg"
                             alt="Product"
                           />
                         </div>
                         <div className="order-details-product-data ">
-                          <div>{product.productId}</div>
-                          <div><i className="fa fa-inr" /> {(+product.cost).toFixed(2)}</div>
+                          <div>{product.title}</div>
+                          <div>{(+product.quantity)} in cart</div>
                         </div>
                         <div className="order-details-product-actions ">
-                          <div className="order-details-product-remove btn btn-info" onClick={() => removeProductFromCart(product.id)}>Remove</div>
+                          <div className="order-details-product-remove btn btn-info" onClick={() => removeProductFromCart(product.productId)}>Remove</div>
                         </div>
                       </div>
                     )) : (

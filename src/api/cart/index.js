@@ -31,9 +31,8 @@ export const updateCart = async (existingProducts, product, action) => {
 
   const cartId = localStorage.getItem("cartId");
 
-  const URI = `/carts/${cartId}`;
+  const URI = `https://fakestoreapi.com/carts/${cartId}`;
 
-  console.log({ URI });
   const token = localStorage.getItem("token");
 
   const headers = {
@@ -70,7 +69,7 @@ export const updateCart = async (existingProducts, product, action) => {
   try {
 
     const response = await AxiosInstance.put(URI, { productIds }, { headers });
-    console.log(response.data);
+    console.log(response);
     return response;
 
   } catch (error) {
@@ -84,24 +83,20 @@ export const updateCart = async (existingProducts, product, action) => {
 
 export const getCart = async () => {
   const cartId = localStorage.getItem("cartId");
-
   const URI = `https://fakestoreapi.com/carts/${cartId}`;
 
   const token = localStorage.getItem("token");
-  console.log({ token });
 
   const headers = {
     'Authorization': `Bearer ${token}`
   }
 
   try {
-
     const cart = await AxiosInstance.get(URI, { headers });
-    console.log(cart);
+    // console.log(cart)
     return cart;
   } catch (error) {
     throw error;
-
   }
 
 }

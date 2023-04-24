@@ -14,14 +14,11 @@ const ProductDetail = () => {
   const [productDetails, setProductDetails] = useState({});
 
   const init = async () => {
-
     const user = localStorage.getItem('userId');
     if (user) setIsLoggedin(true);
-
     const response = await getProduct(selectedProduct);
     console.log(response.data)
     setProductDetails(response.data);
-
   }
 
 
@@ -34,8 +31,10 @@ const ProductDetail = () => {
   const addToCart = async () => {
      try {
       const { data } = await getCart();
+      // console.log(data)
       await updateCart(data.productsSelected, productDetails.id, "ADD")
-      const newProductDetails = { ...productDetails }
+      const newProductDetails = { ...productDetails };
+      
       newProductDetails.addedToCart = 1;
       setProductDetails(newProductDetails);
     } catch (error) {

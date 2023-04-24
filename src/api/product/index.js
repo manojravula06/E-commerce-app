@@ -64,3 +64,14 @@ export const getJewelery=async()=>{
       throw error
   }
 }
+
+export const getSingleProduct=async(productId)=>{
+  const URL=`/products/${productId}`
+
+  try {
+    const response=await AxiosInstance.get(URL)
+    return response;
+  } catch (error) {
+    throw error;
+  }
+}
