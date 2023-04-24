@@ -93,7 +93,7 @@ const Cart = () => {
                           </div>
                           <div className="price-details-item ">
                             <div>Discount</div>
-                            <div><i className="fa fa-inr" />  0</div>
+                            <div><i className="fa fa-inr" />0</div>
                           </div>
                           <div className="price-details-item ">
                             <div>Delivery Charges</div>
