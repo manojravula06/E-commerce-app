@@ -1,60 +1,86 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import "./ProductList.css";
-import Navbar from "../Navbar";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getAllProducts, getProductsForCategory } from '../../api/product/index';
+import Navbar from '../Navbar/Navbar';
 
-const Electronics = () => {
-  const [product, setProduct] = useState([]);
+
+import './ProductList.css';
+
+
+const ProdustList = () => {
+
+
+  const [productList, setProductList] = useState([]);
+  const [currentCategory, setCurrentCategory] = useState('');
+  const [currentCategoryName, setCurrentCategoryName] = useState('');
+
+
+  const init = async () => {
+
+    const query = new URLSearchParams(window.location.search);
+
+    setCurrentCategory(query.get('categoryId'));
+    setCurrentCategoryName(query.get('name'));
+    const id = query.get('categoryId');
+
+    try {
+
+      const products = id ? await getProductsForCategory(id) : await getAllProducts();
+      console.log(products.data)
+      setProductList(products.data);
+
+    } catch (error) {
+      console.error(error);
+
+    }
+
+
+  }
 
   useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((response) => setProduct(response.data));
-    //.then((response)=>console.log(response.data));
+
+    init();
+
   }, []);
-  const renderComponent = () => {
-    return (
 
-      <div>
-        <Navbar />
-        <h1>All Products</h1>
-        <hr />
-        <div className="row">
-        {product.map((item) => {
-          return (
-            <div className="alignment m-2 p-3">
-              <div className="container">
-                <div className="card md">
-                <img
-                  src={item.image}
-                  className="card-img-top img-size"
-                  alt="no-img"
-                />
-                <div className="card-body">
-                  <p className="card-title text-center">{item.title}</p>
-                  <Link to={`/products/detail/${product.id}`} key={product.id}>
-   
-                   <input
-                      type="submit"
-                      value={"View details"}
-                      className="btn btn-info"
-                    />
+  return (
+    <>
+      <Navbar />
+      <div className="productList">
+        <div className="container">
+          <div className="row d-flex justify-content-between">
+            <div className="col-12">
+              <h2 className="product-list-title text-uppercase">{currentCategoryName ? `Products in 
+              '${currentCategoryName}'` : 'All Products'}</h2>
+              <div className="product-list-wrapper">
+                <div className="product-list-box">
+                  {
+                    productList?.map((product) => (
+                      <Link key={product.id} className="product-item" to={`/product/${product.id}/details`}>
+                        <div className="product-img">
+                          <img src={product.image} alt="Item Pic" />
+                        </div>
+                        <div className="product-name text-center">
+                          {product.title}
+                        </div>                      
+                        <div className="product-price">
+                          <i className="fa fa-inr" /> {(+product.price).toFixed(2)}
+                        </div>
+                      </Link>
 
-                  </Link>
+                    ))
+
+
+                  }
                 </div>
               </div>
-              </div>
             </div>
-          );
-        })}
+          </div>
         </div>
       </div>
- 
-    );
-  };
-  return renderComponent();
-};
+    </>
+  )
+}
 
-export default Electronics;
+
+export default ProdustList

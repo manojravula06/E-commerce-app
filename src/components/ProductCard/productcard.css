@@ -1,0 +1,18 @@
+.carditem{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img{
+    width:auto;
+    height:250px;
+    padding: 5px;
+}
+
+.body{
+    text-transform: capitalize;
+    text-align:inherit;
+    font-size:large;
+}

@@ -5,12 +5,12 @@ import Navbar from "../Navbar";
 
 const WomensClothing = () => {
   const [product, setProduct] = useState([]);
-
+  const fetchProducts=async()=>{
+    await axios.get("https://fakestoreapi.com/products").
+    then((response)=>setProduct(response.data))
+  }
   useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((response) => setProduct(response.data));
-    //.then((response)=>console.log(response.data));
+      fetchProducts()
   }, []);
   const renderComponent = () => {
     return (
@@ -21,7 +21,7 @@ const WomensClothing = () => {
         {product
           .filter((item) => item.category === "women's clothing")
           .map((item) => {
-            console.log(item);
+
             return (
               <div className="alignment md p-3">
                 <div className="card">
